@@ -5,6 +5,9 @@ build_filelist
 splitimg
 *.o
 *.d
+build
+cmake-build-*
+.idea
 
 # macOS-specific
 .DS_Store
