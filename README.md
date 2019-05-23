@@ -21,6 +21,10 @@ Changes from Fabrice Bellard's 2019-02-10 release:
 - Support for loading initrd images or compressed initramfs archives.
 - Framebuffer support through SDL 2 instead of 1.2.
 
+Changes from fernandotcl :
+
+- cmake
+
 [TinyEMU-iOS]: https://github.com/fernandotcl/TinyEMU-iOS
 
 ## Usage
