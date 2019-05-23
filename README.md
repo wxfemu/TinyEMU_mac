@@ -29,6 +29,15 @@ Changes from fernandotcl :
 
 ## Usage
 
+For emscripten This will install the build files to build/bin folder.
+
+```
+cd tinyemu
+mkdir build && cd build
+cmake ../. -DCMAKE_BUILD_TYPE=Release -DCMAKE_TOOLCHAIN_FILE=$EMSCRIPTEN/cmake/Modules/Platform/Emscripten.cmake
+make install
+```
+
 Use the VM images available from Fabrice Bellard's [jslinux][] (no need to download them):
 
 ```
