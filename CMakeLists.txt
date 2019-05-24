@@ -47,11 +47,14 @@ function(add_emu_executable ARCH SYSTEM)
     set_target_properties(${target_name} PROPERTIES LINK_FLAGS
         "--memory-init-file 0 \
 --closure 0 \
+-s MODULARIZE=1 \
+-s 'EXPORT_NAME="TinyEmu"' \
 -s NO_EXIT_RUNTIME=1 \
--s NO_FILESYSTEM=1 \
+-s FORCE_FILESYSTEM=1 \
 -s EXPORTED_FUNCTIONS=['_console_queue_char','_vm_start','_fs_import_file','_display_key_event','_display_mouse_event','_display_wheel_event','_net_write_packet','_net_set_carrier'] \
--s EXTRA_EXPORTED_RUNTIME_METHODS=['ccall','cwrap'] \
+-s EXTRA_EXPORTED_RUNTIME_METHODS=['FS','ccall','cwrap','getValue'] \
 -s BINARYEN_TRAP_MODE=clamp \
+-s ASSERTIONS=1 \
 --js-library ${CMAKE_SOURCE_DIR}/js/lib.js \
 -s DISABLE_EXCEPTION_CATCHING=0")
 
@@ -62,7 +65,6 @@ function(add_emu_executable ARCH SYSTEM)
     endif()
 
     set_property(TARGET ${target_name} APPEND PROPERTY COMPILE_FLAGS "-DMAX_XLEN=${ARCH} -DCONFIG_RISCV_MAX_XLEN=${ARCH}")
-
 
     install(TARGETS ${target_name}
             ARCHIVE DESTINATION ${CMAKE_INSTALL_BINDIR}
