@@ -48,7 +48,6 @@ function(add_emu_executable ARCH SYSTEM)
         "--memory-init-file 0 \
 --closure 0 \
 -s MODULARIZE=1 \
--s 'EXPORT_NAME="TinyEmu"' \
 -s NO_EXIT_RUNTIME=1 \
 -s FORCE_FILESYSTEM=1 \
 -s EXPORTED_FUNCTIONS=['_console_queue_char','_vm_start','_fs_import_file','_display_key_event','_display_mouse_event','_display_wheel_event','_net_write_packet','_net_set_carrier'] \
